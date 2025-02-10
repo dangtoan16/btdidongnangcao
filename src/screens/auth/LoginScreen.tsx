@@ -77,7 +77,9 @@ const LoginScreen = ({navigation}: any) => {
           <SectionComponent>
             <ButtonComponent
               disable={isDisable}
-              //onPress={handleLogin}
+              // onPress={handleLogin}
+              onPress={() => navigation.navigate('Main', { screen: 'ProfileScreen' })}
+              // onPress={() => navigation.navigate('ProfileScreen')}
               text="SIGN IN"
               type="primary"
             />
@@ -89,7 +91,6 @@ const LoginScreen = ({navigation}: any) => {
               <ButtonComponent
                 type="link"
                 text="Sign up"
-                onPress={() => navigation.navigate('SignUpScreen')}
               />
             </RowComponent>
           </SectionComponent>

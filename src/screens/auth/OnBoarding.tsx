@@ -58,7 +58,7 @@ const OnbroadingScreen = ({navigation}: any) => {
             alignItems: 'center',
           },
         ]}>
-        <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
+        <TouchableOpacity onPress={() => navigation.navigate('ProfileScreen')}>
          <Text style={[styles.text]}>Skip</Text>
         </TouchableOpacity>
         <TouchableOpacity

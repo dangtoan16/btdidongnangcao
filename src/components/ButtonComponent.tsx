@@ -54,7 +54,7 @@ import {
                 ? color
                 : disable
                 ? appColors.gray4
-                : appColors.primary,
+                : appColors.green,
               marginBottom: 17,
               width: '90%',
             },

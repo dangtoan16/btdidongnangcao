@@ -6,5 +6,5 @@
       WIDTH: Dimensions.get('window').width,
       HEIGHT: Dimensions.get('window').height,
     },
-    BASE_URL: '',
+    BASE_URL: 'http://localhost:3001',
   };

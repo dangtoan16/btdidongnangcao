@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { View,  Image, Switch } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Sms, Lock } from 'iconsax-react-native';
 import { ContainerComponent, SectionComponent, SpaceComponent, InputComponent, RowComponent, ButtonComponent, TextComponent } from '../../components';
 import { appColors } from '../../constants/appColors';
 import { Validate } from '../../utils/validate';
-
+import AntDesign from 'react-native-vector-icons/AntDesign'
+import Fontisto from 'react-native-vector-icons/Fontisto'
 const LoginScreen = ({navigation}: any) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isRemember, setIsRemember] = useState(true);
     const [isDisable, setIsDisable] = useState(true);
+
     useEffect(() => {
         const emailValidation = Validate.email(email);
     
@@ -20,6 +21,9 @@ const LoginScreen = ({navigation}: any) => {
           setIsDisable(false);
         }
       }, [email, password]);
+    const handleLogin = async ()=>{
+        await AsyncStorage.setItem('auth','huy')
+    }
     return (
         <ContainerComponent isImageBackground isScroll>
           <SectionComponent
@@ -38,14 +42,14 @@ const LoginScreen = ({navigation}: any) => {
             />
           </SectionComponent>
           <SectionComponent>
-            <TextComponent size={24} title text="Sign in" />
+            <TextComponent   size={24} title text="Sign in" />
             <SpaceComponent height={21} />
             <InputComponent
               value={email}
               placeholder="Email"
               onChange={val => setEmail(val)}
               allowClear
-              affix={<Sms size={22} color={appColors.gray} />}
+              affix={<Fontisto name='email' size={22} color={appColors.gray} />}
             />
             <InputComponent
               value={password}
@@ -53,7 +57,7 @@ const LoginScreen = ({navigation}: any) => {
               onChange={val => setPassword(val)}
               isPassword
               allowClear
-              affix={<Lock size={22} color={appColors.gray} />}
+              affix={<AntDesign name='lock1' size={22} color={appColors.gray} />}
             />
             <RowComponent justify="space-between">
               <RowComponent onPress={() => setIsRemember(!isRemember)}>
@@ -68,7 +72,7 @@ const LoginScreen = ({navigation}: any) => {
               </RowComponent>
               <ButtonComponent
                 text="Forgot Password?"
-                onPress={() => navigation.navigate('ForgotPassword')}
+                onPress={() => console.log("ok")}
                 type="text"
               />
             </RowComponent>
@@ -77,9 +81,7 @@ const LoginScreen = ({navigation}: any) => {
           <SectionComponent>
             <ButtonComponent
               disable={isDisable}
-              // onPress={handleLogin}
-              onPress={() => navigation.navigate('Main', { screen: 'ProfileScreen' })}
-              // onPress={() => navigation.navigate('ProfileScreen')}
+              onPress={handleLogin}
               text="SIGN IN"
               type="primary"
             />
@@ -91,6 +93,7 @@ const LoginScreen = ({navigation}: any) => {
               <ButtonComponent
                 type="link"
                 text="Sign up"
+                onPress={() => navigation.navigate('HomeScreen')}
               />
             </RowComponent>
           </SectionComponent>

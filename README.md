@@ -66,6 +66,9 @@ Bài tập tuần 2:
 
 Bài tập tuần 3:
 ![image](https://github.com/user-attachments/assets/4449f897-44a9-4495-bbe6-07a948db68ac)
+Bài tập tuần 4:
+![image](https://github.com/user-attachments/assets/bc6cc3d1-a7dd-46e7-836e-81608ec6ceda)
+
 
 
 

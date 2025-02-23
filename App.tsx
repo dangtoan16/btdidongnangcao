@@ -1,49 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import {SplashScreen} from './src/screens';
-import { NavigationContainer } from '@react-navigation/native';
-import AuthNavigator from './src/navigators/AuthNavigator';
-import { StatusBar } from 'react-native';
-import MainNavigator from './src/navigators/MainNavigator';
-import   {useAsyncStorage}  from '@react-native-async-storage/async-storage';
-const App = () => {
-  // Sử dụng useState để lưu thời gian 1.5 giây
-  const [isShowSplash, setIsShowSplash] = useState(true);
-  const [accessToken, setAccessToken] = useState('');
-  const {getItem, setItem} = useAsyncStorage('assetToken');
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setIsShowSplash(false);
-    }, 1500);
-
-    return () => clearTimeout(timeout);
-  }, []);
-
-  useEffect(() => {
-    checkLogin();
-  }, []);
-
-  // Hàm kiểm tra đăng nhập
-  const checkLogin = async () => {
-    const token = await getItem();
-    console.log(token);
-    // Kiểm tra token và lưu vào state
-    token && setAccessToken(token);
-  };
-
-  // Điều chỉnh thanh trạng thái
+import { StatusBar, Text, View } from "react-native";
+import React from "react";
+import AppRouter from "./src/navigators/AppRouter";
+import { useAsyncStorage } from "@react-native-async-storage/async-storage";
+import SplashScreen from "./src/screens/SplashScreen";
+import AuthNavigator from "./src/navigators/AuthNavigator";
+import MainNavigator from "./src/navigators/MainNavigator";
+import { Provider, useSelector } from "react-redux";
+import { authSelector } from "./src/reduxs/reducers/authReducers";
+import store from "./src/reduxs/store";
+const App = ()=>{
+ 
   return (
     <>
-      <StatusBar barStyle={'dark-content'} translucent backgroundColor={'transparent'} />
-      {isShowSplash ? (
-        <SplashScreen />
-      ) : (
-        <NavigationContainer>
-          {accessToken ? <MainNavigator/>:<AuthNavigator />}
-        </NavigationContainer>
-      )}
+    <Provider store={store}>
+        <StatusBar
+          barStyle={'dark-content'}
+          translucent
+          backgroundColor={'transparent'}/>
+          <AppRouter />
+      </Provider>
     </>
-  );
-};
-
+  )
+}
 export default App;

@@ -68,6 +68,10 @@ Bài tập tuần 3:
 ![image](https://github.com/user-attachments/assets/4449f897-44a9-4495-bbe6-07a948db68ac)
 Bài tập tuần 4:
 ![image](https://github.com/user-attachments/assets/bc6cc3d1-a7dd-46e7-836e-81608ec6ceda)
+Bài tập tuần 5:
+![image](https://github.com/user-attachments/assets/1fdaa88d-0513-40f2-9ae7-bbea30d66c36)
+![image](https://github.com/user-attachments/assets/a06271f5-791e-4ecc-a009-02e3a43cd210)
+
 
 
 

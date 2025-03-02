@@ -7,7 +7,11 @@ export const globalStyles = StyleSheet.create({
     flex: 1,
     backgroundColor: appColors.white,
   },
-
+  tab:{
+    paddingHorizontal:12,
+    paddingVertical:6,
+    borderRadius:50
+},
   text: {
     fontFamily: fontFamilies.regular,
     fontSize: 14,
@@ -66,6 +70,6 @@ export const globalStyles = StyleSheet.create({
     padding: 12,
     borderRadius: 12,
     backgroundColor: appColors.white,
-    margin: 12,
+    margin: 0,
   },
 });
